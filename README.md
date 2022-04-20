@@ -1,2 +1,2 @@
 # CMatrixLibrary
-## Simple Matrix Calculation library
+Simple Matrix Calculation library
