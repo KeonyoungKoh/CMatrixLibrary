@@ -1,0 +1,13 @@
+[
+{
+  "directory": "/home/barbariccia/CMatrixLibrary/CMatrixLibrary/build",
+  "command": "/usr/bin/gcc   -g   -o CMakeFiles/CMatrixLibrary.dir/basic_matrix_operator.c.o   -c /home/barbariccia/CMatrixLibrary/CMatrixLibrary/basic_matrix_operator.c",
+  "file": "/home/barbariccia/CMatrixLibrary/CMatrixLibrary/basic_matrix_operator.c"
+},
+
+{
+  "directory": "/home/barbariccia/CMatrixLibrary/CMatrixLibrary/build",
+  "command": "/usr/bin/gcc   -g   -o CMakeFiles/CMatrixLibrary.dir/matrix_calculation.c.o   -c /home/barbariccia/CMatrixLibrary/CMatrixLibrary/matrix_calculation.c",
+  "file": "/home/barbariccia/CMatrixLibrary/CMatrixLibrary/matrix_calculation.c"
+}
+]

@@ -9,7 +9,7 @@ int matrixSum(Matrix* X, Matrix* A, Matrix* B){
     if((X->rows != B->rows) || (X->cols != B->cols)) return 0;
 
     for(int i=1; i<=X->rows; i++){
-        for(int j=0; j<=X->cols; j++){
+        for(int j=1; j<=X->cols; j++){
             setElement(X, i, j, getElement(A, i, j) + getElement(B,i, j));
         }
     }
@@ -22,7 +22,7 @@ int matrixSubstract(Matrix* X, Matrix* A, Matrix*B){
     if((X->rows != B->rows) || (X->cols != B->cols)) return 0;
 
     for(int i=1; i<=X->rows; i++){
-        for(int j=0; j<=X->cols; j++){
+        for(int j=1; j<=X->cols; j++){
             setElement(X, i, j, getElement(A, i, j) - getElement(B,i, j));
         }
     }
@@ -35,7 +35,7 @@ int matrixScalarMultiply(Matrix *X, Matrix* A, Matrix* B){
     if((X->rows != B->rows) || (X->cols != B->cols)) return 0;
 
     for(int i=1; i<=X->rows; i++){
-        for(int j=0; j<=X->cols; j++){
+        for(int j=1; j<=X->cols; j++){
             setElement(X, i, j, getElement(A, i, j) * getElement(B,i, j));
         }
     }
@@ -66,10 +66,26 @@ int transpose(Matrix* X, Matrix *A){
             setElement(X, i, j, getElement(A, j, i));
         }
     }
-
+    return 1;
 }
 
-int main(){
+int matrixTransposeMultiply(Matrix *X, Matrix *A){
+    if((X->rows != A->cols) || (X->cols != A->cols)) return 0;
+
+    float saveElem;
+    for(int i=1; i<=X->rows; i++){
+        for(int j=1; j<=X->cols; j++){
+            saveElem = 0;
+            for(int k=1; k<=A->rows; k++){
+                saveElem += getElement(A, k, i) * getElement(A, k, j);
+            }
+            setElement(X, i, j, saveElem);            
+        }
+    }
+    return 1;
+}
+
+void test1(){
     struct Matrix* X = matrixConstructor(3, 3);
     float datalist1[9] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
     matrixInitializer(X, datalist1, 3, 3);
@@ -110,8 +126,20 @@ int main(){
     matrixPrint(X);
 
     /* transpose check */
-    printf("transpose(A) =");
-    transpose(X, A);
+    printf("transpose(B) =");
+    transpose(X, B);
     matrixPrint(X);
+
+    /* transpose and multiply check */
+    printf("BTB =");
+    matrixTransposeMultiply(X, B);
+    matrixPrint(X);
+    
+    matrixDestructor(X);
+    matrixDestructor(A);
+    matrixDestructor(B);
 }
 
+int main(){
+    test1();
+}

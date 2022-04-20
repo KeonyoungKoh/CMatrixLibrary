@@ -8,7 +8,7 @@ int isValidRange(Matrix* mat, int row, int col){
 
 float *elem(Matrix* mat, int row, int col){
     if(!isValidRange(mat, row, col)) return NULL;
-    else return &(mat->data)[mat->cols*(row-1) + col];
+    else return &(mat->data)[mat->cols*(row-1) + col-1];
 }
 
 float getElement(Matrix *mat, int row, int col){
@@ -18,7 +18,6 @@ float getElement(Matrix *mat, int row, int col){
 int setElement(Matrix *mat, int row, int col, float val){
     if(!isValidRange(mat, row, col)) return 0;
     else{
-        // (mat->data)[mat->cols*(row-1) + col] = val;
         *elem(mat, row, col) = val;
         return 1;
     }
@@ -62,7 +61,7 @@ void matrixPrint(Matrix* mat){
 
 }
 
-int main(){
+void test2(){
     /* matrix construction, initialization check */
     struct Matrix* newMat = matrixConstructor(3, 3);
     float datalist[9] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
@@ -92,3 +91,7 @@ int main(){
     
 
 }
+
+// int main(){
+//     test2();
+// }

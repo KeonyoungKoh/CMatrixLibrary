@@ -18,4 +18,7 @@ int matrixMultiply(Matrix* X, Matrix* A, Matrix* B);
 /* X = transpose(A) */
 int transpose(Matrix* X, Matrix *A);
 
+/* X = transpose(A)*A */
+int matrixTransposeMultiply(Matrix *X, Matrix *A);
+
 #endif
